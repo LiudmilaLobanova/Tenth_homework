@@ -42,5 +42,23 @@ public class FilmManagerTest {
 
     }
 
+    @Test
+    public void shouldFindLastFilmFirstWithLimit() {
+        String film1 = "Matrix";
+        String film2 = "Don't look up";
+        String film3 = "Forrest Gump";
+
+        FilmManager manager = new FilmManager(2);
+        manager.addFilm(film1);
+        manager.addFilm(film2);
+        manager.addFilm(film3);
+
+
+        String[] expected = {film3, film2};
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
 
 }
